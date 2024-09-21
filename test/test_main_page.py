@@ -1,7 +1,7 @@
 import allure
 import pytest
 
-from URLS import URL
+from urls import URL
 from data_help import AnswerText
 
 class TestMainPage:
@@ -20,6 +20,7 @@ class TestMainPage:
         ]
     )
 
+    @allure.title('Методом клика на вопрос получяем и сравниваем текст каждого ответа по порядку используя параметризацию')
     @allure.step('При нажатии на вопрос, сравниваем ответы')
     def test_check_qa_text(self, main_page, num, expected_result):
         main_page.cookie_finder()
@@ -28,7 +29,8 @@ class TestMainPage:
         result = main_page.click_to_question_and_answer_text(num)
         assert result == expected_result
 
-    @allure.step('Переходим на новую вкладку')
+    @allure.title('С главной страницы через лого Яндекс делаем переход на новую вкладку страницы DZEN и сверяем полученный URL')
+    @allure.step('Переходим на новую вкладку и сверяем URL')
     def test_change_page(self, main_page):
         main_page.cookie_finder()
         dzen = main_page.go_dzen()

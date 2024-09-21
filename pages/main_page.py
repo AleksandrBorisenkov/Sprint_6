@@ -1,6 +1,6 @@
 import allure
 
-from URLS import URL
+from urls import URL
 from pages.base_page import BasePage
 from locators.main_page_locators import MainPageLocators
 
@@ -59,3 +59,6 @@ class MainPage(BasePage):
         self.send_tab_key(1)
         self.find_elements_with_wait(MainPageLocators.DZEN_PAGE)
         return self.current_url()
+
+    def return_to_main_page(self):
+        self.click_on_element(MainPageLocators.SAMOKAT_LOGO)

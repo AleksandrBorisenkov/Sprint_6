@@ -30,7 +30,7 @@ class BasePage:
 
     @allure.step('Ищем много элементов')
     def find_elements_with_wait(self, locator):
-        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(locator))
+        WebDriverWait(self.driver, 10).until(EC.visibility_of_all_elements_located(locator))
         return self.driver.find_elements(*locator)
 
     @allure.step('Ищем элемент для клика')

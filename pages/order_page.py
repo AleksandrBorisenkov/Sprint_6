@@ -1,7 +1,6 @@
 import allure
 
-from URLS import URL
-from locators.main_page_locators import MainPageLocators
+from urls import URL
 from pages.base_page import BasePage
 from locators.order_page_locators import OrderPageLocators
 
@@ -20,7 +19,6 @@ class OrderPage(BasePage):
         self.find_element_with_wait(OrderPageLocators.ORDER_FORM_ABOUT_RENT)
 
     @allure.step('Заполняем форму "Для кого самокат"')
-    # Заполняем форму "Для кого"
     # (можно разбить на шаги, что бы явно увидеть что оторвало. Но я не стал)
     def fill_order_form_name_for_whom(self, fname, lname, address, telephone):
         self.set_text_to_element(OrderPageLocators.FNAME, fname)
@@ -32,7 +30,6 @@ class OrderPage(BasePage):
         self.click_on_element(OrderPageLocators.NEXT_BUTTON)
 
     @allure.step('Заполняем форму "Срок аренды"')
-    # Заполняем форму "срок аренды"
     # (можно разбить на шаги, что бы явно увидеть что оторвало. Но я не стал)
     def fill_order_form_name_about_rent(self, date):
         self.set_text_to_element(OrderPageLocators.DDMMYY, date)
@@ -59,14 +56,11 @@ class OrderPage(BasePage):
         self.find_element_with_wait(OrderPageLocators.WATCH_STATUS_ORDER)
         self.click_on_element(OrderPageLocators.WATCH_STATUS_ORDER)
 
-    @allure.step('Проверяем что мы внутри заказа')
+    @allure.step('Проверяем что мы зашли внутрь страницы заказа использую локатор кнопки "отменить заказ"')
     # на странице созданного заказа проверили что страница верная
     # привязавшись к локатору кнопки "отменить заказ"
     def order_status(self):
         return self.get_text_from_element(OrderPageLocators.TRACKER_ORDER)
-
-    def return_to_main_page(self):
-        self.click_on_element(MainPageLocators.SAMOKAT_LOGO)
 
     @allure.step('Если баннер куки нашелся, нажали принять и забыли про нее.')
     def cookie_finder(self):

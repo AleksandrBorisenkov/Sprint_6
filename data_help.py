@@ -1,3 +1,29 @@
+import random
+
+# сгенерировали телефон
+def phone_generator():
+    telephone = random.randint(11111111111, 99999999999)
+    return telephone
+
+# сгенерировали имя
+def f_name_generator():
+    letters = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
+    frs_name = ''.join(random.choice(letters) for i in range(10))
+    return frs_name
+
+# сгенерировали фамилию
+def l_name_generator():
+    letters = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
+    lst_name = ''.join(random.choice(letters) for i in range(10))
+    return lst_name
+
+# предзаполнение адреса
+def address_generator():
+    letters = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
+    address = ''.join(random.choice(letters) for i in range(10))
+    numbs = random.randint(111, 999)
+    return f"{address} {numbs}"
+
 # получение ответов на вопрос
 class AnswerText:
     ANSWER_1 = 'Сутки — 400 рублей. Оплата курьеру — наличными или картой.'
@@ -12,17 +38,3 @@ class AnswerText:
                 'Этого хватает на восемь суток — даже если будете кататься без передышек и во сне. Зарядка не понадобится.')
     ANSWER_7 = 'Да, пока самокат не привезли. Штрафа не будет, объяснительной записки тоже не попросим. Все же свои.'
     ANSWER_8 = 'Да, обязательно. Всем самокатов! И Москве, и Московской области.'
-
-
-# планировал сделать рандом для выбора количество дней аренды самоката.
-# но что-то не получилось... оставил на всякий случай, вдруг додумаюсь =)
-# class HowMuchDays:
-#     DAYS = {
-#     DAY: 'сутки',
-#     TWO_DAYS: 'двое суток',
-#     THREE_DAYS:'трое суток',
-#     FOUR_DAYS: 'четверо суток',
-#     FIVE_DAYS: 'пятеро суток',
-#     SIX_DAYS:'шестеро суток',
-#     SEVEN_DAYS: 'семеро суток'
-#     }
