@@ -7,8 +7,7 @@ import data_help
 
 class TestOrderPage:
 
-    @allure.title('')
-    @allure.step('Через главную страницу создали заказ и вернулись на главную через лого самоката')
+    @allure.title('Полный путь от создания заказа с главной страницы и до возврата на главную через лого самоката')
     def test_crate_order_from_main_page_top_button(self, main_page, order_page):
         main_page.cookie_finder()
         main_page.click_order_button_top()
@@ -24,8 +23,7 @@ class TestOrderPage:
         check_url = main_page.current_url()
         assert check_url == URL.MAIN_URL
 
-    @allure.title('')
-    @allure.step('Создание заказа со страницы заказать и ожидание появление формы с номером заказа')
+    @allure.title('Со страницы заказа оформляем новый заказ и ожидаем появления формы с номером заказа')
     def test_crate_order_from_order_page(self, order_page):
         order_page.cookie_finder()
         order_page.fill_order_form_name_for_whom(data_help.f_name_generator(), data_help.l_name_generator(), data_help.address_generator(), data_help.phone_generator())
